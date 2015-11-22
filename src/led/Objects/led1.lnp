@@ -1,0 +1,3 @@
+".\Objects\lec_simple.obj" 
+TO ".\Objects\led1" 
+PRINT(".\Listings\led1.m51")
