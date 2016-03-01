@@ -1,24 +1,17 @@
 #include <STC12C2052AD.H>                                                                                                                       
-void UART_init (void){
-    TMOD = 0x20;
-    SCON = 0x50;
-    TH1 = 0xF3;
-    TL1 = 0xF3;
-    PCON = 0x80;
-    TR1 = 1;
-}
+sbit LED7 = P1^7;
 
 void main (void){
-    unsigned char UART_data;
-    UART_init();
-    while(1){
-        if (RI == 1){
-            UART_data = SBUF;
-            RI = 0;
-
-            SBUF = UART_data;
-            while(TI == 0);
-            TI = 0;
-        }
+    void delay(unsigned int);
+	while(1){
+		LED7=1;
+		delay(10000000);
+		LED7=0;
+		delay(10000000);
     }
+}
+
+void delay (unsigned int count){
+    unsigned int i;
+	for(i=1;i<=count;i++);
 }
